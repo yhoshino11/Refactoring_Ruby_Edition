@@ -5,8 +5,12 @@ describe 'ch01' do
   subject(:price_code) { 0 }
   subject(:movie)      { Movie.new(title, price_code) }
   context Movie do
-    it 'has title & price' do
+    it 'has title' do
       expect(movie.title).to eq(title)
+    end
+
+    it 'has price_code' do
+      expect(movie.price_code).to eq(price_code)
     end
 
     it 'allows accessing to const' do
