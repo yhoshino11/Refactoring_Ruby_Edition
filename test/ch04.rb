@@ -26,4 +26,10 @@ class TestCase < Minitest::Test
     contents = File.read('empty_data.txt')
     assert_equal '', contents
   end
+
+  def test_read_an_out_of_bounds_length_causes_no_error
+    File.open('simple_data.txt', 'w') { |file| file << 'simple file' }
+    contents = File.read('simple_data.txt', 100)
+    assert_equal 'simple file', contents
+  end
 end
