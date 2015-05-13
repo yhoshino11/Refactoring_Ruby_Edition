@@ -25,6 +25,10 @@ class Movie
     end
     result
   end
+
+  def frequent_renter_points(days_rented)
+    (price_code == NEW_RELEASE && days_rented > 1) ? 2 : 1
+  end
 end
 
 class Rental
@@ -39,7 +43,7 @@ class Rental
   end
 
   def frequent_renter_points
-    (movie.price_code == Movie::NEW_RELEASE && days_rented > 1) ? 2 : 1
+    movie.frequent_renter_points(days_rented)
   end
 end
 
