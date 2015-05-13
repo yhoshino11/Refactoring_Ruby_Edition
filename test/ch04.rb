@@ -10,4 +10,9 @@ class TestCase < Minitest::Test
     contents = File.read('data.txt')
     assert_equal '2', contents[3, 1]
   end
+
+  def test_read_causes_error_when_file_not_found
+    contents = File.read('datas.txt')
+    assert_equal '2', contents[3, 1]
+  end
 end
