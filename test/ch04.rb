@@ -20,4 +20,10 @@ class TestCase < Minitest::Test
     contents = File.read('data.txt', 15)
     assert_equal 'Bradman 99.', contents
   end
+
+  def test_read_empty_file_returns_empty_string
+    File.open('empty_data.txt', 'w') {}
+    contents = File.read('empty_data.txt')
+    assert_equal '', contents
+  end
 end
