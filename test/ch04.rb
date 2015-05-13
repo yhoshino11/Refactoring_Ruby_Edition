@@ -32,4 +32,13 @@ class TestCase < Minitest::Test
     contents = File.read('simple_data.txt', 100)
     assert_equal 'simple file', contents
   end
+
+  def test_read_raises_error_when_file_not_found
+    begin
+      File.read('datas.txt')
+    rescue
+      rescued = true
+    end
+    assert_equal true, rescued
+  end
 end
