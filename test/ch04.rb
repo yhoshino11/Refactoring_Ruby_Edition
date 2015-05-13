@@ -34,11 +34,8 @@ class TestCase < Minitest::Test
   end
 
   def test_read_raises_error_when_file_not_found
-    begin
+    assert_raises Errno::ENOENT do
       File.read('datas.txt')
-    rescue
-      rescued = true
     end
-    assert_equal true, rescued
   end
 end
