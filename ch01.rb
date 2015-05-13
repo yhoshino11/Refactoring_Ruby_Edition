@@ -33,7 +33,7 @@ class Customer
 
   def statement
     total_amount, frequent_renter_points = 0, 0
-    result = "Rental Record for#{@name}\n"
+    result = "Rental Record for #{@name}\n"
     @rentals.each do |element|
       this_amount = 0
 
