@@ -1,16 +1,16 @@
 require 'spec_helper'
 
 describe 'ch01' do
-  subject(:title)      { 'Star Wars' }
-  subject(:price_code) { 0 }
-  subject(:movie)      { Movie.new(title, price_code) }
+  subject(:title) { 'Star Wars' }
+  subject(:regular_price) { RegularPrice.new }
+  subject(:movie) { Movie.new(title, regular_price) }
   context Movie do
     it 'has title' do
       expect(movie.title).to eq(title)
     end
 
-    it 'has price_code' do
-      expect(movie.price_code).to eq(price_code)
+    it 'does not allow to read price' do
+      expect { movie.price }.to raise_error(NoMethodError)
     end
 
     it 'allows accessing to const' do
