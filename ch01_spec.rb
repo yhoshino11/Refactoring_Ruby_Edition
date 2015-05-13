@@ -21,8 +21,12 @@ describe 'ch01' do
   subject(:days_rented) { 3 }
   subject(:rental)      { Rental.new(movie, days_rented) }
   context Rental do
-    it 'has movie & days_rented' do
-      expect(rental.days_rented).to eq(3)
+    it 'has movie' do
+      expect(rental.movie).to eq(movie)
+    end
+
+    it 'has days_rented' do
+      expect(rental.days_rented).to eq(days_rented)
     end
   end
 
